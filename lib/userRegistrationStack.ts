@@ -2,6 +2,7 @@ import * as cdk from "aws-cdk-lib"
 import { Construct } from "constructs"
 
 import { imageBucketStack } from "./s3/imageBucketStack"
+import { userDatabaseStack } from "./dynamodb/userDatabaseStack"
 import { bucketDistributionStack } from "./cloudFront/bucketDistributionStack"
 
 export class UserRegistrationStack extends cdk.Stack {
@@ -11,6 +12,9 @@ export class UserRegistrationStack extends cdk.Stack {
     // S3 and CloudFront stack for image hosting and CDN
     const profilePictureBucket = imageBucketStack(this)
     const bucketDistribution = bucketDistributionStack(this, profilePictureBucket)
+
+    // DynamDB stack for hosting user data
+    userDatabaseStack(this)
 
     new cdk.CfnOutput(this, "CloudFrontURL", {
       value: bucketDistribution.domainName,
