@@ -1,16 +1,19 @@
 import * as cdk from "aws-cdk-lib"
 import { Construct } from "constructs"
-// import * as sqs from 'aws-cdk-lib/aws-sqs';
+
+import { imageBucketStack } from "./s3/imageBucketStack"
+import { bucketDistributionStack } from "./cloudFront/bucketDistributionStack"
 
 export class UserRegistrationStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props)
 
-    // The code that defines your stack goes here
+    // S3 and CloudFront stack for image hosting and CDN
+    const profilePictureBucket = imageBucketStack(this)
+    const bucketDistribution = bucketDistributionStack(this, profilePictureBucket)
 
-    // example resource
-    // const queue = new sqs.Queue(this, 'JtAwsUserRegistrationQueue', {
-    //   visibilityTimeout: cdk.Duration.seconds(300)
-    // });
+    new cdk.CfnOutput(this, "CloudFrontURL", {
+      value: bucketDistribution.domainName,
+    })
   }
 }

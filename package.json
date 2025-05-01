@@ -2,7 +2,7 @@
   "name": "jt-aws-user-registration",
   "version": "0.1.0",
   "bin": {
-    "jt-aws-user-registration": "bin/jt-aws-user-registration.js"
+    "userRegistration": "bin/userRegistration.js"
   },
   "scripts": {
     "build": "tsc",
