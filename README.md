@@ -1,14 +1,26 @@
-# Welcome to your CDK TypeScript project
+# AWS User Registration
 
-This is a blank project for CDK development with TypeScript.
+A mini serverless API project that allows user to `create` / `read` / `update` / `delete` users.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+The infrastructure behind the API is backed by the following AWS services:
 
-## Useful commands
+- `AWS S3` - Hosts the profile pictures of the users.
+- `AWS CloudFront` - CDN for the S3 file hosting.
+- `AWS DynamoDB` - Hosts the data of the users.
+- `AWS Lambda` - Hosts the API logic.
+- `AWS API Gateway` - Exposes an endpoint to trigger the `AWS Lambda` functions.
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `npx cdk deploy`  deploy this stack to your default AWS account/region
-* `npx cdk diff`    compare deployed stack with current state
-* `npx cdk synth`   emits the synthesized CloudFormation template
+Other Tools Used
+
+- `AWS CDK` - Allows management of the underlying infrastructure through code (IaC).
+
+## Features
+
+- Basic CRUD operations of the user data
+- Low latency file delivery through `AWS CloudFront`
+- API data caching for fast API responses
+
+## Running / Testing the API
+
+> [!WARNING]  
+> Not yet implemented
