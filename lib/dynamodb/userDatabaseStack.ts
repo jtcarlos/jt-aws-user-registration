@@ -3,7 +3,7 @@ import * as dynamodb from "aws-cdk-lib/aws-dynamodb"
 import * as cdk from "aws-cdk-lib"
 
 export const userDatabaseStack = (scope: Construct): dynamodb.TableV2 => {
-  return new dynamodb.TableV2(scope, "UsersDatabaseStack", {
+  return new dynamodb.TableV2(scope, "usersDatabaseStack", {
     partitionKey: {
       name: "user_id",
       type: dynamodb.AttributeType.STRING,
