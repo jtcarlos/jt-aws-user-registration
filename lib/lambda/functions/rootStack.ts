@@ -2,7 +2,7 @@ import * as path from "path"
 import { Construct } from "constructs"
 import * as lambda from "aws-cdk-lib/aws-lambda"
 
-import { DEFAULT_FOLDER_PATH, DEFAULT_HANDLER_PATH } from "../utils"
+import { DEFAULT_HANDLER_PATH, DEFAULT_FOLDER_PATH } from "../../../application/utils/constants"
 
 export const rootHandlerStack = (scope: Construct): lambda.Function => {
   return new lambda.Function(scope, "rootLambdaStack", {
