@@ -1,11 +1,11 @@
 #!/usr/bin/env node
-import * as cdk from "aws-cdk-lib"
-import { UserRegistrationStack } from "../lib/userRegistrationStack"
+import * as cdk from 'aws-cdk-lib';
+import { UserRegistrationStack } from '../lib/userRegistrationStack';
 
-const app = new cdk.App()
-new UserRegistrationStack(app, "JtAwsUserRegistrationStack", {
+const app = new cdk.App();
+new UserRegistrationStack(app, 'JtAwsUserRegistrationStack', {
   env: {
-    region: "ap-southeast-1",
+    region: 'ap-southeast-1',
   },
   /* If you don't specify 'env', this stack will be environment-agnostic.
    * Account/Region-dependent features and context lookups will not work,
@@ -17,4 +17,4 @@ new UserRegistrationStack(app, "JtAwsUserRegistrationStack", {
    * want to deploy the stack to. */
   // env: { account: '123456789012', region: 'us-east-1' },
   /* For more information, see https://docs.aws.amazon.com/cdk/latest/guide/environments.html */
-})
+});
